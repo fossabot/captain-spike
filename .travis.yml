@@ -11,7 +11,7 @@ before_install:
 - PATH="$HOME/git-duet:$PATH"
 
 script:
-- npm run test
+- npm run test:ci
 - npm run lint
 - npm run acceptance-test
 
