@@ -31,6 +31,8 @@ Given('a git repository', async () => {
     .env(defaultGitEnv);
 
   await repository.init(false);
+  await repository.addConfig('user.email', 'some.mail@domain.sth');
+  await repository.addConfig('user.name', 'My Username');
 });
 
 function createUntrackedFile() {
