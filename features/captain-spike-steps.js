@@ -98,7 +98,7 @@ async function duetCommitAllUntrackedChanges(commitMetadata) {
   await setDuet();
 
   return repository.raw([
-    'duet-commit',
+    'duet-commit.model.js',
     '-m',
     `"${commitMetadata.message}"`,
   ]);
