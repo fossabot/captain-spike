@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- "10"
+- "lts/*"
+
+before_install:
+- curl -L -f -o "$HOME/git-duet-binaries.tar.gz" https://github.com/git-duet/git-duet/releases/download/0.6.0/linux_amd64.tar.gz
+- mkdir "$HOME/git-duet"
+- tar xzsf "$HOME/git-duet-binaries.tar.gz" -C "$HOME/git-duet"
+- rm -rf "$HOME/git-duet-binaries"
+- PATH="$HOME/git-duet:$PATH"
+
+script:
+- npm run test
+- npm run lint
+- npm run acceptance-test
+

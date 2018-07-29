@@ -98,7 +98,7 @@ async function duetCommitAllUntrackedChanges(commitMetadata) {
   await setDuet();
 
   return repository.raw([
-    'duet-commit.model.js',
+    'duet-commit',
     '-m',
     `"${commitMetadata.message}"`,
   ]);
@@ -125,7 +125,6 @@ email_addresses:
   `;
 
   fs.writeFileSync(`${temporaryRepositoryFolder.name}/.git-authors`, gitAuthors);
-  console.log(String(fs.readFileSync(`${temporaryRepositoryFolder.name}/.git-authors`)));
 }
 
 function removeGitAuthorsFileIfPresent() {
@@ -144,7 +143,6 @@ When('I start captain-spike', async () => {
 
 Then('it should output the commits with a single author', () => {
   const expected = { singleAuthorCommits };
-  console.log(result);
   const resultJson = JSON.parse(result);
 
   assert.deepStrictEqual(resultJson, expected);
