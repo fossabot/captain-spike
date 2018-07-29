@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-require('../dist/app.js');
+const captainSpike = require('../dist/app.js');
+
+captainSpike.default();

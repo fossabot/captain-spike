@@ -2,4 +2,5 @@
 .gitignore
 Dockerfile
 dist/
+dist-acceptance-test/
 node_modules/

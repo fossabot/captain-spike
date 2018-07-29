@@ -1,3 +1,5 @@
+.idea/
 dist/
+dist-acceptance-test/
 node_modules/
 .DS_Store

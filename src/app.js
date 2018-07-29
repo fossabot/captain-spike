@@ -1,5 +1,6 @@
 function main() {
-    throw new Error();
+  const message = {singleAuthorCommits: []};
+  console.log(JSON.stringify(message));
 }
 
 export default main;

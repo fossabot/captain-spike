@@ -9,9 +9,9 @@ RUN npm install
 
 ADD . .
 RUN npm run lint
-RUN npm run build
-    RUN npm run test
+RUN npm run test:ci
 RUN npm run acceptance-test
+RUN npm run build
 
 FROM node-10-alpine-git as production
 

@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --reporters jest-dot-reporter",
     "test:ci": "jest --reporters jest-silent-reporter",
-    "test:watch": "jest --watch",
+    "test:watch": "npm run test -- --watch",
     "prebuild": "rimraf dist/",
     "build": "babel ./src/ --out-dir dist/ --copy-files",
     "prestart": "npm run build",
     "start": "node dist/index.js",
-    "lint": "node node_modules/eslint/bin/eslint.js src/**/*.js",
-    "lint:fix": "node node_modules/eslint/bin/eslint.js src/**/*.js --fix",
-    "acceptance-test": "node node_modules/cucumber/bin/cucumber-js -f node_modules/cucumber-pretty"
+    "lint": "node node_modules/eslint/bin/eslint.js src/**/*.js features/**/*.js",
+    "lint:fix": "npm run lint -- --fix",
+    "preacceptance-test": "npm run build && rimraf dist-acceptance-test/ && babel ./features/ --out-dir dist-acceptance-test/ --copy-files",
+    "acceptance-test": "node node_modules/cucumber/bin/cucumber-js -f node_modules/cucumber-pretty --require dist-acceptance-test"
   },
   "keywords": [],
   "author": "",
@@ -29,11 +30,19 @@
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jest": "^21.18.0",
+    "faker": "^4.1.0",
     "jest": "^23.4.1",
+    "jest-dot-reporter": "^1.0.6",
     "jest-silent-reporter": "0.0.5",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.2",
+    "tmp": "0.0.33",
+    "touch": "^3.1.0",
+    "unique-filename": "^1.1.0"
   },
   "jest": {
     "transform": {}
+  },
+  "dependencies": {
+    "simple-git": "^1.96.0"
   }
 }
