@@ -1,3 +1,3 @@
-export class CliAdapter {
+export default class CliAdapter {
 
 }
