@@ -10,7 +10,7 @@ before_install:
 - tar xzsf "$HOME/git-duet-binaries.tar.gz" -C "$HOME/git-duet"
 - rm -rf "$HOME/git-duet-binaries"
 - PATH="$HOME/git-duet:$PATH"
-- sonar-scanner -Dsonar.login="$SONAR_TOKEN"
+- npm run sonar-scanner -- -Dsonar.login="$SONAR_TOKEN"
 script:
 - npm run test:ci
 - npm run lint

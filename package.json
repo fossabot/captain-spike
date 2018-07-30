@@ -15,7 +15,8 @@
     "lint:fix": "npm run lint -- --fix",
     "lint:ci": "eslint -o reports/eslint.json -f json src/**/*.js features/**/*.js",
     "preacceptance-test": "npm run build && rimraf dist-acceptance-test/ && babel ./features/ --out-dir dist-acceptance-test/ --copy-files",
-    "acceptance-test": "cucumber-js -f node_modules/cucumber-pretty --require dist-acceptance-test"
+    "acceptance-test": "cucumber-js -f node_modules/cucumber-pretty --require dist-acceptance-test",
+    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner"
   },
   "keywords": [],
   "author": "",
@@ -36,6 +37,7 @@
     "jest-dot-reporter": "^1.0.6",
     "jest-silent-reporter": "0.0.5",
     "rimraf": "^2.6.2",
+    "sonar-scanner": "^3.1.0",
     "tmp": "0.0.33",
     "touch": "^3.1.0",
     "unique-filename": "^1.1.0"
