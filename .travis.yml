@@ -1,7 +1,4 @@
 language: node_js
-dist: trusty
-addons:
-  sonarcloud
 node_js:
 - '10'
 before_install:
@@ -10,11 +7,11 @@ before_install:
 - tar xzsf "$HOME/git-duet-binaries.tar.gz" -C "$HOME/git-duet"
 - rm -rf "$HOME/git-duet-binaries"
 - PATH="$HOME/git-duet:$PATH"
-- npm run sonar-scanner -- -Dsonar.login="$SONAR_TOKEN"
 script:
 - npm run test:ci
 - npm run lint
 - npm run acceptance-test
+- npm run sonar-scanner -- -Dsonar.login="$SONAR_TOKEN"
 env:
   global:
-    secure: zXXn8ZJWkHJdI/tCuWCFlqiROJWNx8vwJWBkZJnrtMDPpQ2xQR2adq72ZxSe+KIALk/UfgWifnvKIQfM1sv95Pa9eKWIenUXV3qhef3k69Ez6CWlBnHtxwdNjvGoWOQmqH7CgWCJ9ERt4sy/kArpd5RP5w2vpzXQS2MEIGR0IgCA3CdUFBT+KuaZjdfJIFafrc4md55jE1ORWPf5H1IJKb+WZbg2Vmdo338h8/NfyFQ1fGtWu4o8yc8K9hfbYDJ4Y+UCcSXplTgMLFpjvWypqu4YOjNkCBffWUq+cXsn7LJKTb8uW7bxX98+ZBoVg+yBkbHC1w5bRBRwO7U01RV3YYIh+ANcSzDsXyS93oGR+9sxFksw8zQKe7DbDINk4AucEOl3u2602TOmv41H8xdbyGaaWYGdOc9lXHHmv8KsoT8OGnkX8eNbNbbRTw/zZUr8M36nLVu22qrl2IA5XdLDtQBgybEIJ8QlO7n432AmoUxcGlvwaHIh1peds331uiaK/pj8Yg/mmCtk5orQX42/SSpGlH+5R67HOeySP9B5rrb0bgTmGFOwVrDOGCNnH5H/oqkXXzpEdLykszPlZVCLVkONDuuMR0k5ibuK63AT4C4ZOsa25WAAfi3T6hWyGvsqorJD8EYJUYgdqLNHMXw2IakRqMxHjLAEnERBYzs9PoI=
+    secure: XARAok2351SO7q2IlyFjS5OJnCFNKSkINCDoAdR0S9gzT3lumpf74E88o4+ndLS29gBLLJMQ2ArM17P/46mwTeS+YwryDv5D7hgX4Ef08rVGWrK5QxQ994yMm7DPC7fXAAx6TYP2/HbbvaDcxrtPNdZOuwQygUsQt4pF+xJpgIAtrPFGkjIVqFP1rkM6nHFgMf1ArFovPQDZPb9In19o4J6gtKhPcm/YboGMSDL5Kj2QPAXBF45tCC20uSRRA4cTc/g5+yoD0Ey2k/xUY6jzaX9Rg/llKbKmK81uV3M3JDcj2BCS2NtFrIiKlyXc3L0vCT7leR/HAN6D+P0OVoLsE/cFErAUCMPSQS01Ra2xPkjJVSeOqXwFTqu9Dix8INYU4XvMNJJViPcY0E1Mmb7Ck8sq4p9njnyF2N/Y7HdrtVnLqoB6Cj5dW9LffkocgzVj+IY3ERacJ99quNZKaDxkJ8dXhV9j29GfKttUVzCT7yE6uoMnvs+fqg0kbr6JnPCuctQ14lSlGFQwe70EEq6G+GpSPF2eCa/nY2zdjlcT6/CpUXiyJILVjw1aJ5dUnzRrZYJWquKI64M0+d2XZSg4iugZFtbmi7EjDaLpKz8JqhMbr7J50aHMuAuZIuFyM6C4+j3E2UATpm7fd4doj25oI3QeCN7GeaK3Hu3ym0OWzTY=
