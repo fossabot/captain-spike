@@ -1,6 +1,11 @@
 language: node_js
 node_js:
 - '10'
+sudo: required
+addons:
+  apt:
+    packages:
+    - docker-ce
 before_install:
 - curl -L -f -o "$HOME/git-duet-binaries.tar.gz" https://github.com/git-duet/git-duet/releases/download/0.6.0/linux_amd64.tar.gz
 - mkdir "$HOME/git-duet"
@@ -12,5 +17,6 @@ script:
 - npm run lint
 - npm run acceptance-test
 - npm run sonar-scanner -- -Dsonar.login="$SONAR_TOKEN"
+- docker build -t jaedle/captain-spike:latest .
 env:
   secure: mVsArh2c62Ay8EozJBsMqZeoP/TFg4C7yJ3ksbZJouWeLbc1f0buFp6RzDwbGKDY0OvC4Guu7WpGRFsw7epAlmZHIUv0TXleCeisAXMzk9x0WJqvct9jFwshrsGnO5r0LstgQUIw+RsnfQwRjvj62B6T0Ex+YSrWv+RSPNYUR+Ol3qA1EC4pYlvbEy5GufKoj1gDCu3d/yXEGbjz5pOQ9kuOdZ0WnkOIBjwKl1AJcWrSBCYf/BF71Q1C+ggD612yYPLuhhd6h/+4s/5HwvN+XiinZppoXnhFfvr7yR1RViNp5ahRxKqU90HqvosOu3gH0BotiJRYc7GS5Z1ARxlgLH9bqDdrLPCuL5YsHmoLI95jzgKnjKbcWgzNHejq8nQo1HfEsFucon9zbtI2k+K+D8vGV9d+E9Rr6jsdoNJdc2C/0M0DgTZzoCjUmDC+WeY5Xq9m+JssBgU/z1X7XZ0WoF3FShjc7950L6FYHjuGF+jbfo4E3H6TY53H2nN444lk2qtIAJK6oUudG1wVlja0KVIkKXqHI9k8g0f9SfGeGKzeh6KuQQCRkb4wp/U9kZXOELdP5HD9FwCzKhSdlsZzuSNybKdw+1z4dvggtPjm2otZG/dQI8nUcoBxLD4lu3t6dPgvLKqbf0LBdQRJXF0BVzdO9qg70g70JdHUT8dXEK4=
