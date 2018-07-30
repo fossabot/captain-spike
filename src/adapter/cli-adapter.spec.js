@@ -17,12 +17,13 @@ describe('CliAdapter', () => {
     const result = await cliAdapter.findSpikes();
 
     const expectedResult = {
-      foundSpikeCommits: [
-        new Commit('commit-id-1'),
-        new Commit('commit-id-2'),
-        new Commit('commit-id-3')],
+      singleAuthorCommits: [
+        'commit-id-1',
+        'commit-id-2',
+        'commit-id-3',
+      ],
     };
 
-    expect(result).toEqual(expectedResult);
+    expect(JSON.parse(result)).toEqual(expectedResult);
   });
 });
