@@ -5,16 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --reporters jest-dot-reporter",
-    "test:ci": "jest --reporters jest-silent-reporter",
+    "test:ci": "jest --reporters jest-silent-reporter --coverage",
     "test:watch": "npm run test -- --watch",
     "prebuild": "rimraf dist/",
     "build": "babel ./src/ --out-dir dist/ --copy-files",
     "prestart": "npm run build",
     "start": "node bin/cli.js",
-    "lint": "node node_modules/eslint/bin/eslint.js src/**/*.js features/**/*.js",
+    "lint": "eslint src/**/*.js features/**/*.js",
     "lint:fix": "npm run lint -- --fix",
+    "lint:ci": "eslint -o reports/eslint.json -f json src/**/*.js features/**/*.js",
     "preacceptance-test": "npm run build && rimraf dist-acceptance-test/ && babel ./features/ --out-dir dist-acceptance-test/ --copy-files",
-    "acceptance-test": "node node_modules/cucumber/bin/cucumber-js -f node_modules/cucumber-pretty --require dist-acceptance-test"
+    "acceptance-test": "cucumber-js -f node_modules/cucumber-pretty --require dist-acceptance-test"
   },
   "keywords": [],
   "author": "",

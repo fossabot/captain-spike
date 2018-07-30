@@ -1,5 +1,7 @@
 .idea/
+.scannerwork/
 dist/
 dist-acceptance-test/
 node_modules/
+reports/
 .DS_Store
