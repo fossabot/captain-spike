@@ -3,8 +3,7 @@ export default class SpikeFinderService {
     this.repositoryAdapter = repositoryAdapter;
   }
 
-
-  findSpikes() {
+  async findSpikes() {
     return this.repositoryAdapter.getSoloCommits();
   }
 }

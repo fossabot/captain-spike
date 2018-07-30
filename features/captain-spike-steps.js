@@ -144,7 +144,8 @@ When('I start captain-spike', async () => {
 });
 
 Then('it should output the commits with a single author', () => {
-  const expected = { singleAuthorCommits };
+  const commitsWithNewestCommitFirst = singleAuthorCommits.reverse();
+  const expected = { singleAuthorCommits: commitsWithNewestCommitFirst };
   const resultJson = JSON.parse(result);
 
   assert.deepStrictEqual(resultJson, expected);

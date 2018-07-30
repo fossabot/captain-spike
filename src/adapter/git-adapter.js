@@ -2,8 +2,8 @@ import simpleGit from 'simple-git/promise';
 import Commit from '../domain/commit.model';
 
 class GitAdapter {
-  constructor(git) {
-    this.git = git;
+  constructor(repository) {
+    this.repository = repository;
   }
 
   static async create(repository) {
@@ -12,7 +12,7 @@ class GitAdapter {
       return Promise.reject(new Error(`Given path ${repository} is not a git repository`));
     }
 
-    return Promise.resolve(new GitAdapter(git));
+    return Promise.resolve(new GitAdapter(repository));
   }
 
   async getSoloCommits() {
@@ -20,7 +20,7 @@ class GitAdapter {
   }
 
   async getCommitIds() {
-    return this.git.raw(['log', '--format=%H', '--grep=Signed-off-by: ', '--invert-grep'])
+    return simpleGit(this.repository).raw(['log', '--format=%H', '--grep=Signed-off-by: ', '--invert-grep'])
       .then((logOutput) => {
         if (logOutput === null) {
           return '';

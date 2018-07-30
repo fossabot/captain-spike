@@ -1,8 +1,18 @@
-import {existsSync} from 'fs';
+import { existsSync } from 'fs';
+import SpikeFinderService from './service/spike-finder-service';
+import GitAdapter from './adapter/git-adapter';
+import CliAdapter from './adapter/cli-adapter';
 
-export default function main() {
+
+export default async function main() {
   const repository = getRepositoryOrThrowError();
-  console.log({});
+
+  const gitAdapter = new GitAdapter(repository);
+  const spikeFinderService = new SpikeFinderService(gitAdapter);
+  const cliAdapter = new CliAdapter(spikeFinderService);
+
+  const foundSpikes = await cliAdapter.findSpikes();
+  console.log(foundSpikes);
 }
 
 export function getRepositoryOrThrowError() {
