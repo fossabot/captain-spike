@@ -1,6 +1,10 @@
+.idea/
 .git/
-.gitignore
-Dockerfile
 dist/
 dist-acceptance-test/
 node_modules/
+
+.gitignore
+Dockerfile
+sonar-project.properties
+README.md
