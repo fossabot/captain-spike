@@ -16,15 +16,16 @@ script:
 - npm run test:ci
 - npm run lint:ci
 - npm run acceptance-test
+- docker image build -t jaedle/captain-spike:latest -f build.Dockerfile .
 - npm run sonar-scanner -- -Dsonar.login="$SONAR_TOKEN"
+before_deploy:
+- docker image build -t jaedle/captain-spike:latest -f build.Dockerfile .
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 deploy:
   provider: script
   on:
     branch: master
-  script:
-  - docker image build -t jaedle/captain-spike:latest -f build.Dockerfile .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push jaedle/captain-spike:latest
+  script: docker push jaedle/captain-spike:latest
 env:
   global:
   - secure: oTcT6q7oR+niEcfFE1aDDlUVBVpj5TOZVshhbS93VeShWiDPiKY06aHUsDdMGaCm8oeGog2yZJHvmanYqIz/QIa/6lA1V30qvH76D8vi7Y6EhWhp6hOxV2cF9WzYHSUvtae+S0eilwiRXmUrowGJHxeR2oLiObx0wUYAN+b7tiCARfX8kkwj9ZNm6W73mu2LcZkmYeOD2InluDNgsL6ztgtk0GuPPJHzcH2MUsa1S5lqgAjusZ0fYoVMmRmTPT7+7RVpeE15sVptOxVZkPqabHuc24uuM56pRYlONTtUGQPBUpzkUS9mH4DA62dMmJ0rdAGRB6+Q/3c0W9aa66pTkhjF/1FCnzqSy/3PEM9jUlScFTatwfQlmu82Voq+UxQbDkIpfm1DECUBV/gFQAdUwxXUB5Erwy2bCeEAnccBiEUAgf24F291hpqlTqNx8ZO7TE9Big493QmB1FSu6jI+SexdJNX75Kvrt55otBWV3Y2d/s8Vub5g9n6fWBL7ca69Wf0l1Lhe6TPN9LL70zsA0zUFL16k2bIRrHCXixIecpKAmsADD/v3OUZhAMMJKci1u1xUFmRyyAkwr7wZ4/DcFVBzChusAI4XdozISHUEumFKgKLUVXcbDrpIOG8ESSTbmRXxIN6kyzwySHukhYtI8DgyDZXjQZpViwy3I0DhgFc=
