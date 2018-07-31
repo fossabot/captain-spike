@@ -1,3 +1,22 @@
 {
-  "presets": ["es2015"]
+  "env": {
+    "development": {
+      "presets": ["env"],
+      "plugins": [
+        "add-module-exports"
+      ]
+    },
+    "production": {
+      "presets": ["env", "minify"],
+      "plugins": [
+        "add-module-exports"
+      ]
+    }
+  },
+  "plugins": [
+    ["transform-runtime", {
+      "polyfill": false,
+      "regenerator": true
+    }]
+  ]
 }

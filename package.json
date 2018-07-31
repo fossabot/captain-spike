@@ -1,14 +1,18 @@
 {
   "name": "captain-spike",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "captain-spike": "bin/cli.js"
+  },
   "scripts": {
     "test": "jest --reporters jest-dot-reporter",
     "test:ci": "jest --reporters jest-silent-reporter --coverage",
     "test:watch": "npm run test -- --watch",
     "prebuild": "rimraf dist/",
     "build": "babel ./src/ --out-dir dist/ --copy-files",
+    "build:prod": "BABEL_ENV=production babel ./src/ --out-dir dist/ --copy-files",
     "prestart": "npm run build",
     "start": "node bin/cli.js",
     "lint": "eslint src/**/*.js features/**/*.js",
@@ -16,7 +20,8 @@
     "lint:ci": "eslint -o reports/eslint.json -f json src/**/*.js features/**/*.js",
     "preacceptance-test": "npm run build && rimraf dist-acceptance-test/ && babel ./features/ --out-dir dist-acceptance-test/ --copy-files",
     "acceptance-test": "cucumber-js -f node_modules/cucumber-pretty --require dist-acceptance-test",
-    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner"
+    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
+    "prepublish": "npm run build:prod"
   },
   "keywords": [],
   "author": "",
@@ -25,7 +30,12 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^23.4.0",
+    "babel-minify": "^0.4.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-minify": "^0.5.0-alpha.3cc09dcf",
     "cucumber": "^4.2.1",
     "cucumber-pretty": "^1.4.4",
     "eslint": "^4.19.1",
@@ -46,6 +56,11 @@
     "transform": {}
   },
   "dependencies": {
+    "babel-runtime": "^6.26.0",
     "simple-git": "^1.96.0"
-  }
+  },
+  "files": [
+    "bin",
+    "dist"
+  ]
 }
