@@ -14,15 +14,15 @@ before_install:
 - PATH="$HOME/git-duet:$PATH"
 script:
 - npm run test:ci
-- npm run lint
+- npm run lint:ci
 - npm run acceptance-test
-- docker image build -t jaedle/captain-spike:latest -f build.Dockerfile .
 - npm run sonar-scanner -- -Dsonar.login="$SONAR_TOKEN"
 deploy:
   provider: script
   on:
     branch: master
   script:
+  - docker image build -t jaedle/captain-spike:latest -f build.Dockerfile .
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push jaedle/captain-spike:latest
 env:
