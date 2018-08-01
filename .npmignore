@@ -1,0 +1,15 @@
+dist-acceptance-test/
+features/
+src/
+
+.babelrc
+.dockerignore
+.eslintrc.js
+.git-authors
+.gitignore
+.travis.yml
+
+build.Dockerfile
+Dockerfile
+jest.config.js
+sonar-project.properties

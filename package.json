@@ -12,7 +12,6 @@
     "test:watch": "npm run test -- --watch",
     "prebuild": "rimraf dist/",
     "build": "babel ./src/ --out-dir dist/ --copy-files",
-    "build:prod": "BABEL_ENV=production babel ./src/ --out-dir dist/ --copy-files",
     "prestart": "npm run build",
     "start": "node bin/cli.js",
     "lint": "eslint src/**/*.js features/**/*.js",
@@ -21,7 +20,7 @@
     "preacceptance-test": "npm run build && rimraf dist-acceptance-test/ && babel ./features/ --out-dir dist-acceptance-test/ --copy-files",
     "acceptance-test": "cucumber-js -f node_modules/cucumber-pretty --require dist-acceptance-test",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
-    "prepublish": "npm run build:prod"
+    "prepublish": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -60,7 +59,7 @@
     "simple-git": "^1.96.0"
   },
   "files": [
-    "bin",
-    "dist"
+    "bin/",
+    "dist/"
   ]
 }
