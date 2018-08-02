@@ -12,13 +12,23 @@ Time to stop this!
 
 ### Installating from npm repository
 
-TBD
+```sh
+# if you prefer npm
+npm install -g captain-spike
+# if you prefer yarn
+yarn add --global captain-spike
+```
 
 ### Start Captain-Spike
 
 ```sh
 captain-spike <target-git-repository>
 ```
+
+```sh
+captain-spike <target-git-repository>
+```
+
 
 ### Output on single author commits
 
