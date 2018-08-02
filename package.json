@@ -20,7 +20,8 @@
     "preacceptance-test": "npm run build && rimraf dist-acceptance-test/ && babel ./features/ --out-dir dist-acceptance-test/ --copy-files",
     "acceptance-test": "cucumber-js -f node_modules/cucumber-pretty --require dist-acceptance-test",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "codacy": "cat reports/lcov.info | codacy-coverage"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +32,7 @@
     "babel-jest": "^23.4.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
+    "codacy-coverage": "^3.0.0",
     "cucumber": "^4.2.1",
     "cucumber-pretty": "^1.4.4",
     "eslint": "^4.19.1",
@@ -42,7 +44,6 @@
     "jest-dot-reporter": "^1.0.6",
     "jest-silent-reporter": "0.0.5",
     "rimraf": "^2.6.2",
-    "sonar-scanner": "^3.1.0",
     "tmp": "0.0.33",
     "touch": "^3.1.0",
     "unique-filename": "^1.1.0"
