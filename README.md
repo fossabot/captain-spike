@@ -19,14 +19,17 @@ npm install -g captain-spike
 yarn add --global captain-spike
 ```
 
-### Start Captain-Spike
+### Start Captain-Spike through local installation
 
 ```sh
 captain-spike <target-git-repository>
 ```
 
+### Start Captain-Spike through docker
+
 ```sh
-captain-spike <target-git-repository>
+cd <your_repository>
+docker container run --mount type=bind,source="$(pwd)",target=/repository,readonly --rm -i jaedle/captain-spike:latest
 ```
 
 

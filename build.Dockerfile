@@ -16,7 +16,6 @@ ADD package.json .
 ADD package-lock.json .
 RUN npm install
 
-
 ADD . .
 RUN npm run lint
 RUN npm run test:ci
@@ -24,6 +23,8 @@ RUN npm run acceptance-test
 RUN npm run build
 
 FROM node-10-alpine-git as production
+
+RUN mkdir /repository
 
 WORKDIR /app
 COPY --from=builder /build/package.json .
@@ -34,4 +35,4 @@ COPY --from=builder /build/bin/ ./bin/
 COPY --from=builder /build/dist/ ./dist/
 
 WORKDIR /app/bin
-CMD ["node", "cli.js"]
+CMD ["node", "cli.js", "/repository"]
