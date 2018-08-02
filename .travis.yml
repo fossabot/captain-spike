@@ -6,6 +6,8 @@ addons:
   apt:
     packages:
     - docker-ce
+  sonarcloud:
+    organization: "jaedle-github"
 before_install:
 - curl -L -f -o "$HOME/git-duet-binaries.tar.gz" https://github.com/git-duet/git-duet/releases/download/0.6.0/linux_amd64.tar.gz
 - mkdir "$HOME/git-duet"
@@ -17,7 +19,7 @@ script:
 - npm run lint:ci
 - npm run acceptance-test
 - docker image build -t jaedle/captain-spike:latest -f build.Dockerfile . --quiet
-- npm run sonar-scanner -- -Dsonar.login="$SONAR_TOKEN"
+- sonar-scanner
 before_deploy:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 deploy:
