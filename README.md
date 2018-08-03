@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.com/jaedle/captain-spike.svg?branch=master)](https://travis-ci.com/jaedle/captain-spike)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=captain-spike&metric=coverage)](https://sonarcloud.io/dashboard?id=captain-spike)
+[![Techincal debt](https://sonarcloud.io/api/project_badges/measure?project=captain-spike&metric=sqale_index)](https://sonarcloud.io/dashboard?id=captain-spike)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f9a9a0080d8f4370b73b45e730ffe1fc)](https://www.codacy.com/app/jaedle/captain-spike?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jaedle/captain-spike&amp;utm_campaign=Badge_Grade)
 [![dependencies Status](https://david-dm.org/jaedle/captain-spike/status.svg)](https://david-dm.org/jaedle/captain-spike)
 [![devDependencies Status](https://david-dm.org/jaedle/captain-spike/dev-status.svg)](https://david-dm.org/jaedle/captain-spike?type=dev)
