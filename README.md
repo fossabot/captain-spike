@@ -1,5 +1,6 @@
 # Captain Spike: Spot the spiker
 
+[![Build Status](https://travis-ci.com/jaedle/captain-spike.svg?branch=master)](https://travis-ci.com/jaedle/captain-spike)
 [![dependencies Status](https://david-dm.org/jaedle/captain-spike/status.svg)](https://david-dm.org/jaedle/captain-spike)
 
 ## Idea
