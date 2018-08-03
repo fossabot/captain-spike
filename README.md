@@ -1,7 +1,7 @@
 # Captain Spike: Spot the spiker
 
 [![npm version](https://badge.fury.io/js/captain-spike.svg)](https://badge.fury.io/js/captain-spike)
-
+[![](https://images.microbadger.com/badges/image/jaedle/captain-spike.svg)](https://microbadger.com/images/jaedle/captain-spike "Get your own image badge on microbadger.com")
 
 [![Build Status](https://travis-ci.com/jaedle/captain-spike.svg?branch=master)](https://travis-ci.com/jaedle/captain-spike)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=captain-spike&metric=coverage)](https://sonarcloud.io/dashboard?id=captain-spike)
