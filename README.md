@@ -1,5 +1,6 @@
 # Captain Spike: Spot the spiker
 
+[![npm version](https://badge.fury.io/js/captain-spike.svg)](https://badge.fury.io/js/captain-spike)
 [![Build Status](https://travis-ci.com/jaedle/captain-spike.svg?branch=master)](https://travis-ci.com/jaedle/captain-spike)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=captain-spike&metric=coverage)](https://sonarcloud.io/dashboard?id=captain-spike)
 [![Techincal debt](https://sonarcloud.io/api/project_badges/measure?project=captain-spike&metric=sqale_index)](https://sonarcloud.io/dashboard?id=captain-spike)
