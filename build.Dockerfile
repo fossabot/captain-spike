@@ -12,11 +12,11 @@ RUN mkdir -p /git-duet/git-duet && \
 ENV PATH="/git-duet/git-duet:$PATH"
 
 
-ADD package.json .
-ADD package-lock.json .
+COPY package.json .
+COPY package-lock.json .
 RUN npm install
 
-ADD . .
+COPY . .
 RUN npm run lint
 RUN npm run test:ci
 RUN npm run acceptance-test

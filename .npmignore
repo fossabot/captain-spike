@@ -10,6 +10,7 @@ src/
 .travis.yml
 
 build.Dockerfile
+build.sh
 Dockerfile
 jest.config.js
 sonar-project.properties
