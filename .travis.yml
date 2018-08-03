@@ -28,12 +28,7 @@ deploy:
   on:
     branch: master
   skip_cleanup: true
-  script:
-  - npx semantic-release
-  - version="$(git describe --tags `git rev-list --tags --max-count=1` | sed 's/v//g')"
-  - docker image tag jaedle/captain-spike:latest jaedle/captain-spike:${version}
-  - docker push jaedle/captain-spike:latest
-  - docker push jaedle/captain-spike:${version}
+  script: sh build.sh
 env:
   global:
   - secure: WD/nWj+y4ou8FHIdxrX8hRSVGEvOQfSOe5hNBw+FazMquMP00siss4xZKS/gfzjiIO3L8ctmG5l2u8iTII7Cw1TojjghXSVv7e/ds3SZbyPLx8AFw2Wud0EUEUDCt1pVuTxpkpqeJ3P86kEwh1cCqtFMK3Q/HrX+U5bhjZ3EXNVXmrEQ7YudbejqxqtxQKjAiZR6RjKnbx6mQKaWcs2xbUyoJIUBo6mQnHZQJPGPW5o6Ctdj79u//Mi0xXub+KXl1ZWgN2xaz4gG6M37lbS3BG9AOeEiJEvchZIgpIu4NaJbVzmmVvo3yor9AUb16BGt3CwUoGarJEo7N4Q2lm1/REhvorQpIC8oZJF64pLaTi4aXg44cCkTQCkP2ShRgAAQ0nrB0vgpj4XK1OCbjHrPOMUGC0ghBsoAeMA7nTZ/OB8vUzpS2y+rAXSDnMcxb/BtfbbMY6tYOhd8lXqW4q3Gm+Sa/GvN3SqwN1yJgxCayHtsWZSfpOHQhT+xAaCEu5XSWcKAwxQUyxvBgrpApXDn3x5NjGxiH9LVH8jUXYfb1VwIMYmBL6PnL6LvcO7yOQUa77TLdHx66UjintX7BDMgR2YKDubaa5yfmL3awmQMgqUtF9ao2A0vqCKdTLHGqpteu64Ycx8JODVwz8RvNkGAQSxeatfos/YhRyCg5jiN4Jc=
