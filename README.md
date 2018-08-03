@@ -1,5 +1,7 @@
 # Captain Spike: Spot the spiker
 
+[![dependencies Status](https://david-dm.org/jaedle/captain-spike/status.svg)](https://david-dm.org/jaedle/captain-spike)
+
 ## Idea
 
 Imagine you are working on a team and you are practicing Xtreme Programming.
