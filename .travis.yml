@@ -28,7 +28,7 @@ deploy:
   on:
     branch: master
   skip_cleanup: true
-  script: build.sh
+  script: sh build.sh
 
 env:
   global:
