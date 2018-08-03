@@ -27,6 +27,7 @@ deploy:
 - provider: script
   on:
     branch: master
+  skip_cleanup: true
   script: npx semantic-release
 - provider: script
   on:
