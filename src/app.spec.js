@@ -1,4 +1,4 @@
-import {getRepositoryOrThrowError} from './app';
+import { getRepositoryOrThrowError } from './app';
 
 describe('app.js', () => {
   describe('getRepositoryOrThrowError', () => {
@@ -13,7 +13,7 @@ describe('app.js', () => {
       process.argv = ['node-executable', 'some-script', '/tmp/does/not/exist'];
 
       expect(getRepositoryOrThrowError)
-        .toThrow(`given path /tmp/does/not/exist is not existing`);
+        .toThrow('given path /tmp/does/not/exist is not existing');
     });
 
     it('should return path if path exists', () => {
@@ -23,6 +23,5 @@ describe('app.js', () => {
 
       expect(path).toEqual('/tmp');
     });
-
   });
 });
