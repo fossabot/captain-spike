@@ -1,6 +1,7 @@
 # Captain Spike: Spot the spiker
 
 [![npm version](https://badge.fury.io/js/captain-spike.svg)](https://badge.fury.io/js/captain-spike)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjaedle%2Fcaptain-spike.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjaedle%2Fcaptain-spike?ref=badge_shield)
 [![](https://images.microbadger.com/badges/image/jaedle/captain-spike.svg)](https://microbadger.com/images/jaedle/captain-spike "Get your own image badge on microbadger.com")
 
 [![Build Status](https://travis-ci.com/jaedle/captain-spike.svg?branch=master)](https://travis-ci.com/jaedle/captain-spike)
@@ -117,3 +118,7 @@ Running it from docker:
 ```sh
 docker container run --rm -i captain-spike:development <options>
 ```
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fjaedle%2Fcaptain-spike.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fjaedle%2Fcaptain-spike?ref=badge_large)
